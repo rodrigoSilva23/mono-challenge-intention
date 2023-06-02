@@ -27,7 +27,7 @@ Verifique se todas as dependências necessárias estão instaladas antes de pros
 ## Passo 1: Clonar o repositório
 
 ```bash
-  https://github.com/rodrigoSilva23/mono-challenge-intention.git
+  git clone https://github.com/rodrigoSilva23/mono-challenge-intention.git
 ```
 
 ## Passo 2: Instalação

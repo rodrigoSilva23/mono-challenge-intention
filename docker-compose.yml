@@ -1,0 +1,66 @@
+version: "3.9"
+
+volumes:
+  db-data:
+
+services:
+  service-products:
+    image: service-products
+    container_name: service-products
+    restart: unless-stopped
+    build:
+      context: ./service-product
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ./service-product:/var/www
+    networks:
+      - lebiscuit-network
+ 
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - "8989:80"
+    volumes:
+      - ./service-product:/var/www
+      - ./service-product/docker/nginx:/etc/nginx/conf.d/
+    depends_on:
+      - service-products
+    networks:
+      - lebiscuit-network
+
+  service-intention:
+    image: service-intention
+    entrypoint: ./.docker/entrypoint.sh
+    container_name: service-intention
+    restart: unless-stopped
+    build:
+      context: ./service-intention
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./service-intention:/home/node/app
+    ports:
+      - "3000:3000"
+      - "5555:5555"
+    depends_on:
+      - db-intention
+    networks:
+      - lebiscuit-network
+
+    
+  db-intention:
+    image: postgres:15.3-alpine
+    container_name: db-intention
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: lebiscuit
+      POSTGRES_PASSWORD: desafio123
+      POSTGRES_DB: buy_intention
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - lebiscuit-network
+networks:
+  lebiscuit-network:
+    driver: bridge
+ 

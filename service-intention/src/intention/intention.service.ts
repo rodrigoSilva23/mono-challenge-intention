@@ -9,7 +9,7 @@ export class IntentionService {
 
   async create(createIntentionDto: CreateIntentionDto) {
     try {
-      return await this.create(createIntentionDto);
+      return await this.repository.create(createIntentionDto);
     } catch (error) {
       console.error('Error', error);
     }
@@ -38,7 +38,7 @@ export class IntentionService {
     const currentPage = Number(page);
 
     return {
-      ...results,
+      data: results,
       pagination: {
         length: totalItems,
         size,

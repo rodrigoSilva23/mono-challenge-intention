@@ -61,6 +61,7 @@ export class IntentionRepository {
     const totalItems = await this.prisma.user.count({
       where: { name: { contains: search, mode: 'insensitive' } },
     });
+
     return { results, totalItems };
   }
   async findOne(id: number) {

@@ -44,8 +44,14 @@ Aguarde subir os containers depois rode os seguintes comandos para instalar as d
     docker-compose run service-products  php artisan key:generate
 ```
 
-## rotas
+## rotas 
 
+é possivel ter acesso a todos os endpoints de intenção de serviço atraves das rotas do serviço de produtos, as rotas de produtos esta na raiz do projeto basta importa no insomnia
+
+exemplo com paginação e pesquisa
+- http://localhost:8989/api/intention/pages?page=1&size=1&sort=name&order=desc&search=ana
+
+# rota opcional para serviço de intenção
 Você pode verificar as rotas disponíveis acessando [http://localhost:3000/api/v1/endpoint](http://localhost:3000/api/v1/endpoint). Isso fornecerá uma visão geral de todos os endpoints disponíveis em sua API.
 
 <p>

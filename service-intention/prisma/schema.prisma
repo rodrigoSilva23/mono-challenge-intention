@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int          @id @default(autoincrement())
+  name      String       @db.VarChar(100)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  status    IntentionStatus @default(pending)
+  address   Address?
+  intentionProduct  IntentionProduct[]
+
+  @@map("users")
+}
+
+enum IntentionStatus {
+  pending
+  confirmed
+  canceled
+}
+
+model Address {
+  id         Int      @id @default(autoincrement())
+  street     String   @db.VarChar(100)
+  number     String   @db.VarChar(100)
+  postcode   String   @db.VarChar(100)
+  complement String?  @db.VarChar(100)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  userId     Int      @unique
+  user       User     @relation(fields: [userId], references: [id])
+
+  @@map("adresses")
+}
+
+model IntentionProduct {
+  id          Int      @id @default(autoincrement())
+  productId   Int
+  title       String   @db.VarChar(50)
+  price       Float
+  category    String   @db.VarChar(50)
+  description String   @db.VarChar(255)
+  image       String   @db.VarChar(255)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@map("intention_products")
+}

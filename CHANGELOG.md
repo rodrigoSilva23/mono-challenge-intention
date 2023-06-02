@@ -27,11 +27,17 @@ Todas as alterações significativas no projeto serão documentadas neste arquiv
 - v1.0 [serviço de intenção] implementação do banco usando prisma.
 - v1.0 [serviço de intenção] criação das rotas necessárias.
 
+## [1.0.0] - 02/06/2023
+
+- v1.0 projeto enviado ao github 
+
 ### Changed
 
 - ## [1.0.0] - 01/06/2023
 - v1.0 [serviço de intenção] Houve uma mudança na estrutura do banco a tabela produto passou a ser chamado de produto intenção
 - v1.0 [serviço de intenção] implementado os filtros e pesquisa.
 
-<!-- ### Fixed
-- Fixed error when handling empty requests in the product listing. --> 
+ ### Fixed
+## [1.0.0] - 02/06/2023
+
+- v1.0 correção de bugs

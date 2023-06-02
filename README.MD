@@ -49,8 +49,8 @@ Aguarde subir os containers depois rode os seguintes comandos para instalar as d
 é possível ter acesso a todos os endpoints de intenção de serviço através das rotas do serviço de produtos, as rotas de produtos esta na raiz do projeto basta importa no insomnia
 
 rotas de intenção de serviço através do serviço de produtos
-- http://localhost:8989/api/intention 
-exemplo com paginação e pesquisa
+- http://localhost:8989/api/intention  <br>
+exemplo com paginação e pesquisa 
 - http://localhost:8989/api/intention/pages?page=1&size=1&sort=name&order=desc&search=ana
 
 exemplo rota de produtos ou `product/1`

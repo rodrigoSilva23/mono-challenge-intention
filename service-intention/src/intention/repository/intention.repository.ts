@@ -28,6 +28,7 @@ export class IntentionRepository {
       });
     } catch (error) {
       console.error('Error', error);
+      return error;
     }
   }
 

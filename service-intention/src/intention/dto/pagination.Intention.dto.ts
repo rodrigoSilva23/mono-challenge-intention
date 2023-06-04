@@ -1,23 +1,27 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { Length, Max, Min } from 'class-validator';
+import { IsNumber, Length, Max, Min, isNumber } from 'class-validator';
 
 enum Order {
   asc = 'asc',
   desc = 'desc',
 }
+enum Sort {
+  id = 'id',
+  name = 'name',
+  status = 'status',
+  createdAt = 'createdAt',
+  updatedAt = 'updatedAt',
+}
 export class PaginationDto {
   @ApiPropertyOptional()
   page?: number;
   @ApiPropertyOptional()
-  @Min(0)
-  @Max(100)
   size?: number;
-  @ApiPropertyOptional()
-  sort?: string;
+  @ApiPropertyOptional({ enum: Sort })
+  sort?: Sort;
   @ApiPropertyOptional({ enum: Order })
   order?: Order;
   @ApiPropertyOptional()
-  @Length(0, 255)
   search?: string;
 }
 

@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Param, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Query,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { IntentionService } from './intention.service';
 import { CreateIntentionDto } from './dto/create-intention.dto';
 import { ApiTags } from '@nestjs/swagger';
@@ -24,7 +32,7 @@ export class IntentionController {
     return this.intentionService.paginate(params);
   }
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id', ParseIntPipe) id: string) {
     return this.intentionService.findOne(+id);
   }
 }

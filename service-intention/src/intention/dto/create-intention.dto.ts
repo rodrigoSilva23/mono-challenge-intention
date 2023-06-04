@@ -9,21 +9,23 @@ import {
   IsNotEmpty,
 } from 'class-validator';
 
-export class AddressDto {
+export class Address {
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
   @Length(1, 100)
   street: string;
+
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  @Length(1, 100)
+  @Length(100)
   number: string;
+
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  @Length(1, 100)
+  @Length(9)
   postcode: string;
 
   @ApiPropertyOptional()
@@ -33,33 +35,62 @@ export class AddressDto {
   complement: string;
 }
 
-export class IntentionProductDto {
+export class IntentionProduct {
   @ApiProperty()
   @IsNumber()
+  @IsNotEmpty({
+    each: true,
+  })
   productId: number;
-  @ApiProperty()
-  @IsString()
-  @Length(1, 50)
-  title: string;
 
+  @ApiProperty()
+  @IsString({
+    each: true,
+  })
+  @IsNotEmpty({
+    each: true,
+  })
+  @Length(1, 50, {
+    each: true,
+  })
+  title: string;
+  @IsNotEmpty({
+    each: true,
+  })
   @ApiProperty()
   @IsNumber()
   price: number;
 
   @ApiProperty()
-  @IsString()
-  @Length(1, 50)
+  @IsString({
+    each: true,
+  })
+  @Length(1, 50, {
+    each: true,
+  })
+  @IsNotEmpty({
+    each: true,
+  })
   category: string;
 
   @ApiProperty()
-  @IsString()
-  @Length(1, 255)
+  @IsString({
+    each: true,
+  })
+  @Length(1, 255, {
+    each: true,
+  })
   description: string;
-
+  @IsNotEmpty({
+    each: true,
+  })
   @ApiProperty()
-  @IsString()
+  @IsString({
+    each: true,
+  })
   image: string;
 }
+
 enum IntentionStatus {
   Pending = 'pending',
   Confirmed = 'confirmed',
@@ -72,13 +103,16 @@ export class CreateIntentionDto {
   @IsNotEmpty()
   @Length(3, 100)
   name: string;
+
   @ApiProperty({ enum: IntentionStatus })
   status: IntentionStatus;
 
-  @ApiProperty({ type: AddressDto })
-  address: AddressDto;
-  @ApiProperty({ type: [IntentionProductDto] })
+  @ApiProperty({ type: Address })
+  @ValidateNested({ each: true })
+  address: Address;
+
+  @ApiProperty({ type: [IntentionProduct] })
   @IsArray()
   @ValidateNested({ each: true })
-  intentionProduct: IntentionProductDto[];
+  intentionProduct: IntentionProduct;
 }

@@ -50,7 +50,10 @@ Aguarde subir os containers depois rode os seguintes comandos para instalar as d
 
 rotas de intenção de serviço através do serviço de produtos
 - http://localhost:8989/api/intention  <br>
-- http://localhost:8989/api/intention/pages?page=1&size=1&sort=name&order=desc&search=ana
+
+- rota de pages com pesquisa <br>
+<img src="./service-intention/img/get-search.png" ></img>
+- exemplo: http://localhost:8989/api/intention/pages?page=1&size=1&sort=name&order=desc&search=ana
 
 exemplo rota de produtos ou `product/1`
 - http://localhost:8989/api/product

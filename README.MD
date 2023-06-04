@@ -22,7 +22,7 @@ Antes de iniciar a instalação do projeto, certifique-se de ter os seguintes re
 - Docker: [Como instalar o Docker](https://www.docker.com/get-started/)
 - Docker Compose
 
-- caso esteja ultilizando windows será necessario instalar o [WSL2](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers) para roda o docker corretamente,Verifique se todas as dependências necessárias estão instaladas antes de prosseguir com os seguintes passos.
+caso esteja ultilizando windows será necessario instalar o [WSL2](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers) para roda o docker corretamente,Verifique se todas as dependências necessárias estão instaladas antes de prosseguir com os seguintes passos.
 
 ## Passo 1: Clonar o repositório
 

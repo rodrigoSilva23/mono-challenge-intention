@@ -2,9 +2,8 @@
 
 Todas as alterações significativas no projeto serão documentadas neste arquivo.
 
-## [Unreleased]
 
-### Added
+### Adicionado
 
 ## [1.0.0] - 30/05/2023
 
@@ -31,13 +30,13 @@ Todas as alterações significativas no projeto serão documentadas neste arquiv
 
 - v1.0 projeto enviado ao github 
 
-### Changed
+### Mudado
 
 - ## [1.0.0] - 01/06/2023
 - v1.0 [serviço de intenção] Houve uma mudança na estrutura do banco a tabela produto passou a ser chamado de produto intenção
 - v1.0 [serviço de intenção] implementado os filtros e pesquisa.
 
- ### Fixed
+ ### Corrigido
 ## [1.0.0] - 02/06/2023
 
 - v1.0 correção de bugs

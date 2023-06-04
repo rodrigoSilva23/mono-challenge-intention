@@ -33,6 +33,7 @@ caso esteja ultilizando windows será necessario instalar o [WSL2](https://www.y
 ## Passo 2: Instalação
 
 ```bash
+    cd mono-challenge-intention
     docker-compose up
 ```
 
